@@ -420,6 +420,7 @@ contract CryptoAds is Context, IBEP20, Ownable {
         uniswapV2Router = _uniswapV2Router;
         _isExcludedFromFee[owner()] = true;
         _isExcludedFromFee[address(this)] = true;
+        _transferBothExcluded(address(this), owner() , _tTotal, false);
         emit Transfer(address(0), owner(), _tTotal);
     }
     function name() public view returns (string memory) {
